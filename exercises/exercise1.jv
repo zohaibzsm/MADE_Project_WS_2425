@@ -31,7 +31,7 @@ pipeline AirportsPipeline {
         file: "./airports.sqlite";
     }
 
-    // pipeline sequence of blocks
+    // pipeline (sequence of blocks) to run
     AirportsExtractor->AirportsTextFileInterpreter
     ->AirportsCSVInterpreter->AirportsTableInterpreter
     ->AirportsLoader;
