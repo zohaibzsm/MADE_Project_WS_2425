@@ -21,16 +21,16 @@ pipeline treesPipeline {
 
     constraint stadtteil_const oftype RegexConstraint { 
         // valid stadtteil start with "Vogelsang"
-        regex: /^"Vogelsang"\w*$/;
+        regex: /^["Vogelsang"]\w*$/;
     }
-    valuetype valid_id oftype decimal {
+    valuetype valid_id oftype text {
         constraints: [ id_const ];
     }
 
     constraint id_const oftype RegexConstraint { 
         // {1-3 numbers}.{numbers}
-        regex: /^\d{1,3}\.\d+$/;
-        //regex: /^\d{1,3}\.\d+,\s\d{1,3}\.\d+$/;
+        //regex: /^\d{1,3}\.\d+$/;
+        regex: /^\d{1,3}\.\d+,\s\d{1,3}\.\d+$/;
 
     }
 
