@@ -11,18 +11,26 @@ This problem is important because there is an issue of inequality of healthcare 
 
 ## Datasources
 
-### Datasource1: Health Insurance Exchange Public Use Files
-Metadata URL: https://data.healthcare.gov/dataset/ad5c073e-8451-4378-b3d8-4ba189f29cfe#overview
-Data URL: https://data.healthcare.gov/dataset/ad5c073e-8451-4378-b3d8-4ba189f29cfe#data-table
-Data Type: CSV
+### Datasource1: Selected Characteristics of Health Insurance Coverage in the United States
+Metadata URL: https://www.census.gov/programs-surveys/acs/guidance/estimates.html  
+Data URL: https://data.census.gov/table/ACSST1Y2023.S2701?t=Health:Health%20Insurance  
+Data Type: CSV  
+This dataset contains information about the different demographic groups who are insured and their income estimates with margin of errors.
 
-### Datasource2: Qualified Health Plans in PY2025 in states
-Metadata URL: https://data.healthcare.gov/dataset/147e50d3-7710-4706-a7c8-796413ef459d#overview
-Data URL: https://data.healthcare.gov/dataset/147e50d3-7710-4706-a7c8-796413ef459d#data-table
-Data Type: CSV
+### Datasource2: Health Care Diversity
+Metadata URL: https://datausa.io/profile/geo/united-states#health  
+Data URL: https://prod-app.datausa.io/api/data?Geography=01000US&drilldowns=Year,Health%20Coverage,Gender&measures=Health%20Insurance%20by%20Gender%20and%20Age  
+Data Type: CSV  
+This dataset contains information about the health insurance and Coverage by Gender and Age.
+
+### Datasource3: US Census Demographic Data
+Metadata URL: https://www.kaggle.com/datasets/muonneutrino/us-census-demographic-data   
+Data URL: https://www.kaggle.com/datasets/muonneutrino/us-census-demographic-data/data  
+Data Type: CSV  
+This dataset contains information about the different demographics, incomes, employment, county and states.
 
 ## Work Packages
 Numpy  
 Pandas  
-Matplotlib
-Seaborn
+Matplotlib  
+Seaborn 
