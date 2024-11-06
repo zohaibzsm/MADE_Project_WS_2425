@@ -24,5 +24,5 @@ Data Type: CSV
 ## Work Packages
 Numpy  
 Pandas  
-Matplotlib
+Matplotlib  
 Seaborn
