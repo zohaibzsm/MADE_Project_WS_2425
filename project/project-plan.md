@@ -12,13 +12,13 @@ This problem is important because there is an issue of inequality of healthcare 
 ## Datasources
 
 ### Datasource1: Health Insurance Exchange Public Use Files
-Metadata URL: https://data.healthcare.gov/dataset/ad5c073e-8451-4378-b3d8-4ba189f29cfe#overview
-Data URL: https://data.healthcare.gov/dataset/ad5c073e-8451-4378-b3d8-4ba189f29cfe#data-table
+Metadata URL: https://data.healthcare.gov/dataset/ad5c073e-8451-4378-b3d8-4ba189f29cfe#overview  
+Data URL: https://data.healthcare.gov/dataset/ad5c073e-8451-4378-b3d8-4ba189f29cfe#data-table  
 Data Type: CSV
 
-### Datasource2: Qualified Health Plans in PY2025 in states
-Metadata URL: https://data.healthcare.gov/dataset/147e50d3-7710-4706-a7c8-796413ef459d#overview
-Data URL: https://data.healthcare.gov/dataset/147e50d3-7710-4706-a7c8-796413ef459d#data-table
+### Datasource2: Qualified Health Plans in PY2025 in states  
+Metadata URL: https://data.healthcare.gov/dataset/147e50d3-7710-4706-a7c8-796413ef459d#overview  
+Data URL: https://data.healthcare.gov/dataset/147e50d3-7710-4706-a7c8-796413ef459d#data-table  
 Data Type: CSV
 
 ## Work Packages
