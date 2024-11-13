@@ -96,14 +96,14 @@ class Pipeline:
         print("Data Transformation Success!")
 
     def load_Data(self):
-        # load data table 1
+        # load data 1
         path = 'sqlite:///../data/' + self.kaggle_user_name + '0.sqlite'
         disk_engine = create_engine(path, echo = False)
         (self.data1).to_sql('US_demographics', disk_engine, if_exists='replace')
         disk_engine.dispose()
         # (self.data1).to_csv("data1", index=False)
 
-        # load data table 2
+        # load data 2
         path = 'sqlite:///../data/' + self.kaggle_user_name + '1.sqlite'
         disk_engine = create_engine(path, echo = False)
         (self.data2).to_sql('ushealthinsurancedataset', disk_engine, if_exists='replace')
