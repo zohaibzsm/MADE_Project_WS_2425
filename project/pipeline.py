@@ -45,7 +45,6 @@ class Pipeline:
             print("Dataset 1 Extraction Success!")
         #(self.data1).to_csv("data1", index=False)
 
-
         # dataset2 extraction
         dataset2 = "teertha/ushealthinsurancedataset"
         subprocess.run(["kaggle", "datasets", "download", "-d", dataset2], check=True)
