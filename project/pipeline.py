@@ -77,7 +77,6 @@ class Pipeline:
         # filling values less than 30%
         self.data1.fillna(method='ffill', inplace=True)
         
-
         # Dealing with missing values: 2nd dataset
 
         # drop columns if at least 30% data is missing
