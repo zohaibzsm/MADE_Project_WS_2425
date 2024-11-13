@@ -4,10 +4,10 @@
 Demographic Disparities in Healthcare Accessibility and Outcomes in North America
 
 ## Main Question
-How do healthcare accessibility and outcomes in North America vary across different demographic groups, and what factors contribute to these disparities?
+How do healthcare accessibility(such as Insurance Coverage, Income level, employment status, and poverty rate) in America vary across different demographic groups, and what factors contribute to these disparities?
 
 ## Description
-This problem is important because there is an issue of inequality of healthcare services across different demographic groups in North America. This problem will be addressed by identifying the disparities/factors like income, age, location that may lead to this unhealthy behavior. The insights can uncover the groups that face significant barriers to healthcare accessibilty and treatment by discovering the appropriate factors.
+This problem is important because there is an issue of inequality of healthcare services across different demographic groups in America. This problem will be addressed by identifying the disparities/factors like income, age, employment, and location that may lead to this unhealthy behavior. The insights can uncover the groups that face significant barriers to healthcare accessibilty and treatment by discovering the appropriate factors.
 
 ## Datasources
 
