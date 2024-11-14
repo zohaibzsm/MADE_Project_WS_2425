@@ -1,4 +1,4 @@
 #!/bin/bash
-# please provider your kaggle username and key in the main function in pipeline.py
+# please provide your kaggle username and key in the "if block" main guard in pipeline.py
 
 python ./pipeline.py
