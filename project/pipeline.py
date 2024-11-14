@@ -1,4 +1,3 @@
-
 # Write a script (for example in Python or Jayvee) that pulls the data sets 
 # you chose from the internet, transforms it and fixes errors, and finally stores your data in the /data directory
 
