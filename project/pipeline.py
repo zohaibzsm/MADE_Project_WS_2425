@@ -1,6 +1,7 @@
 # Write a script (for example in Python or Jayvee) that pulls the data sets 
 # you chose from the internet, transforms it and fixes errors, and finally stores your data in the /data directory
 
+
 # Place the script in the /project directory (any file name is fine)
 
 # Add a /project/pipeline.sh that starts your pipeline as you would do from the command line as entry point:
