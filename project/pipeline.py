@@ -3,6 +3,7 @@
 
 # Place the script in the /project directory (any file name is fine)
 
+
 # Add a /project/pipeline.sh that starts your pipeline as you would do from the command line as entry point:
 # E.g. if you run your script on your command line using `python3 /project/pipeline.py`, create a /project/pipeline.sh with the content: 
 # !/bin/bash
