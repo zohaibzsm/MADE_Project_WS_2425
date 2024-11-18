@@ -1,0 +1,103 @@
+
+pipeline WDRPipeline {
+
+    // World Development Report --> WDR
+
+    // WDRPipeline pipeline 1
+    WDRExtractor->WDRXLSXInterpreter->WDRSheetPicker->FigureDataSelector;
+
+    // WDRPipeline pipeline 2
+    FigureDataSelector->NameHeaderWriter->NameHeaderWriter1->WDRTableInterpreter->WDRLoader1;
+    
+    // WDRPipeline pipeline 3
+    FigureDataSelector->NameHeaderWriter_->NameHeaderWriter2->WDRTableInterpreter1->WDRLoader2;
+
+
+// ****************************Pipeline1********************************
+
+    block WDRExtractor oftype HttpExtractor { 
+            url: "https://thedocs.worldbank.org/en/doc/7d852628d96b9411d43e5d36d5dff941-0050062022/original/Graphs-Chapter-5-02082022.xlsx";
+    }
+    
+    block WDRXLSXInterpreter oftype XLSXInterpreter { }
+    
+    block WDRSheetPicker oftype SheetPicker {
+        sheetName: "Figure S5.1.2";
+    }
+
+    block FigureDataSelector oftype CellRangeSelector {
+        select: range P2:S45;
+    }
+
+    block NameHeaderWriter oftype CellWriter {
+        at: cell P2;
+        write: ["Country Code"];
+    }
+
+    block NameHeaderWriter1 oftype CellWriter {
+        at: cell S2;
+        write: ["Bond Issuance Share"];
+    }
+    
+    block WDRTableInterpreter oftype TableInterpreter { 
+        header: true;
+        columns: [
+            "Country Code" oftype CountryCodeAlpha3,
+            // "Economy" oftype text,
+            // "GDP per Capita" oftype GDP_per_Capita_type,
+            "Bond Issuance Share" oftype decimal
+        ];
+    }
+    
+    // Bond_Issuance_Share Constraint
+    valuetype Bond_Issuance_Share_type oftype decimal {
+        constraints: [ Bond_Issuance_Share_Const ];
+    }
+    constraint Bond_Issuance_Share_Const oftype RangeConstraint {
+        lowerBound: 0;
+        upperBound: 1;
+    }
+    // constraint Bond_Issuance_Share_Const on decimal :
+        // value >= 0 and value <= 1;
+
+    block WDRLoader1 oftype SQLiteLoader {
+        table: "bondIssuance";
+        file: "./country-stats.sqlite";
+    }
+
+
+// ****************************Pipeline2********************************
+
+    block NameHeaderWriter_ oftype CellWriter {
+        at: cell P2;
+        write: ["Country Code"];
+    }
+
+    block NameHeaderWriter2 oftype CellWriter {
+        at: cell R2;
+        write: ["GDP per Capita"];
+    }
+
+    block WDRTableInterpreter1 oftype TableInterpreter { 
+        header: true;
+        columns: [
+            "Country Code" oftype CountryCodeAlpha3,
+            // "Economy" oftype text,
+            "GDP per Capita" oftype GDP_per_Capita_type,
+            // "Bond Issuance Share" oftype decimal
+        ];
+    }
+
+    // GDP_per_Capita Constraint
+    valuetype GDP_per_Capita_type oftype decimal {
+        constraints: [ GDP_per_Capita_Const ];
+    }
+    constraint GDP_per_Capita_Const on decimal :
+        value > 0;
+
+    block WDRLoader2 oftype SQLiteLoader {
+        table: "gdpPerCapita";
+        file: "./country-stats.sqlite";
+    }
+    
+}
