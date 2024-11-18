@@ -1,0 +1,7 @@
+pandas
+os
+subprocess
+zipfile
+sqlalchemy
+create_engine
+kaggle
