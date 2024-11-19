@@ -8,9 +8,11 @@ pipeline WDRPipeline {
 
     // WDRPipeline pipeline 2
     FigureDataSelector->NameHeaderWriter->NameHeaderWriter1->WDRTableInterpreter->WDRLoader1;
+    // FigureDataSelector->WDRTableInterpreter->WDRLoader1;
     
     // WDRPipeline pipeline 3
     FigureDataSelector->NameHeaderWriter_->NameHeaderWriter2->WDRTableInterpreter1->WDRLoader2;
+    // FigureDataSelector->WDRTableInterpreter1->WDRLoader2;
 
 
 // ****************************Pipeline1********************************
@@ -30,12 +32,12 @@ pipeline WDRPipeline {
     }
 
     block NameHeaderWriter oftype CellWriter {
-        at: cell P2;
+        at: cell A1;
         write: ["Country Code"];
     }
 
     block NameHeaderWriter1 oftype CellWriter {
-        at: cell S2;
+        at: cell A4;
         write: ["Bond Issuance Share"];
     }
     
@@ -43,9 +45,7 @@ pipeline WDRPipeline {
         header: true;
         columns: [
             "Country Code" oftype CountryCodeAlpha3,
-            // "Economy" oftype text,
-            // "GDP per Capita" oftype GDP_per_Capita_type,
-            "Bond Issuance Share" oftype decimal
+            "Bond Issuance Share" oftype Bond_Issuance_Share_type
         ];
     }
     
@@ -53,12 +53,12 @@ pipeline WDRPipeline {
     valuetype Bond_Issuance_Share_type oftype decimal {
         constraints: [ Bond_Issuance_Share_Const ];
     }
-    constraint Bond_Issuance_Share_Const oftype RangeConstraint {
-        lowerBound: 0;
-        upperBound: 1;
-    }
-    // constraint Bond_Issuance_Share_Const on decimal :
-        // value >= 0 and value <= 1;
+    // constraint Bond_Issuance_Share_Const oftype RangeConstraint {
+    //     lowerBound: 0;
+    //     upperBound: 1;
+    // }
+    constraint Bond_Issuance_Share_Const on decimal :
+        value >= 0 and value <= 1;
 
     block WDRLoader1 oftype SQLiteLoader {
         table: "bondIssuance";
@@ -69,12 +69,12 @@ pipeline WDRPipeline {
 // ****************************Pipeline2********************************
 
     block NameHeaderWriter_ oftype CellWriter {
-        at: cell P2;
+        at: cell A1;
         write: ["Country Code"];
     }
 
     block NameHeaderWriter2 oftype CellWriter {
-        at: cell R2;
+        at: cell A3;
         write: ["GDP per Capita"];
     }
 
@@ -82,9 +82,7 @@ pipeline WDRPipeline {
         header: true;
         columns: [
             "Country Code" oftype CountryCodeAlpha3,
-            // "Economy" oftype text,
-            "GDP per Capita" oftype GDP_per_Capita_type,
-            // "Bond Issuance Share" oftype decimal
+            "GDP per Capita" oftype GDP_per_Capita_type
         ];
     }
 
