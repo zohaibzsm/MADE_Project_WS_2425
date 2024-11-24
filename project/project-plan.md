@@ -24,10 +24,10 @@ Data Type: CSV
 This dataset contains information about the health insurance charges for the different attributes like Age, Sex and Region.
 
 ## Work Packages
-Data Collection
-ETL Pipeline
-Data Report
-Automated Testing
-CI
-EDA
-Final Report
+Data Collection     
+ETL Pipeline    
+Data Report     
+Automated Testing       
+CI      
+EDA     
+Final Report   
