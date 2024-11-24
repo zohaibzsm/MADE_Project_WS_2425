@@ -4,7 +4,7 @@
 Demographic Disparities in Healthcare Accessibility in America
 
 ## Main Question
-what factors contribute to the healthcare accessibility disparities in America across different demographic groups such as Insurance Coverage, Income level, employment status, and poverty rate?
+What factors contribute to the healthcare accessibility disparities in America across different demographic groups such as Insurance Coverage, Income level, employment status, and poverty rate?
 
 ## Description
 This problem is important because there is an issue of inequality/discrimination of healthcare services across different demographic groups in America. This problem will be addressed by identifying the disparities/factors like income, age, employment, and/or location that may lead to this unhealthy behavior. The insights aim to uncover the factors that face significant barriers to healthcare accessibilty and treatment by discovering the appropriate factors.
