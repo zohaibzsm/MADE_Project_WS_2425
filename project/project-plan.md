@@ -1,13 +1,13 @@
 # Project Plan
 
 ## Title
-Demographic Disparities in Healthcare Accessibility in America
+Relationship between Demographics and Healthcare Accessibility in America
 
 ## Main Question
-What factors contribute to the healthcare accessibility disparities in America across different demographic groups such as Insurance Coverage, Income level, employment status, and poverty rate?
+How do demographic factors like age, sex, and income influence health insurance charges/coverage across different states/regions?
 
 ## Description
-This problem is important because there is an issue of inequality/discrimination of healthcare services across different demographic groups in America. This problem will be addressed by identifying the disparities/factors like income, age, employment, and/or location that may lead to this unhealthy behavior. The insights aim to uncover the factors that face significant barriers to healthcare accessibilty and treatment by discovering the appropriate factors.
+This problem is important because there is an issue of inequality/discrimination of healthcare services across different demographic groups in America. This problem will be addressed by identifying the relation between disparities/factors like income, age, gender, employment, region/location and Health care charges/coverage that may lead to this unhealthy behavior. The insights aim to uncover the demographic groups that face significant barriers to healthcare accessibilty and treatment.
 
 ## Datasources
 
