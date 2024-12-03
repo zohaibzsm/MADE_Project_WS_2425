@@ -50,10 +50,10 @@ pipeline MBTKPipeline {
         ];
     }
     // valid_month Constraint
-    valuetype valid_month oftype decimal {
+    valuetype valid_month oftype integer {
         constraints: [ valid_month_Const ];
     }
-    constraint valid_month_Const on decimal :
+    constraint valid_month_Const on integer :
         value > 0 and value <= 12;
 
     // valid_id Constraint
