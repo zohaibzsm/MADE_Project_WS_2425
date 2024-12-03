@@ -57,7 +57,7 @@ pipeline MBTKPipeline {
         value > 0 and value <= 12;
 
     // valid_id Constraint
-    valuetype valid_id oftype decimal {
+    valuetype valid_id oftype integer {
         constraints: [ valid_id_Const ];
     }
     constraint valid_id_Const on decimal :
