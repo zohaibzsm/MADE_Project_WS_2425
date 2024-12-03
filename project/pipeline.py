@@ -21,8 +21,9 @@ import os
 import subprocess
 import zipfile
 from sqlalchemy import create_engine # type: ignore
+from tests import Test
 
-class Pipeline:
+class Pipeline():
     def __init__(self, kaggle_user_name, kaggle_key):
         self.kaggle_user_name = kaggle_user_name
         self.kaggle_key = kaggle_key
@@ -42,7 +43,7 @@ class Pipeline:
         # verify if extracted successfully
         self.data1 = pd.read_csv("us-census-demographic-data/acs2017_county_data.csv")
         if self.data1 is not None:
-            print("Dataset 1 Extraction Success!")
+            print("\nDataset 1 Extraction Success!\n")
         #(self.data1).to_csv("data1", index=False)
 
         # dataset2 extraction
@@ -56,7 +57,7 @@ class Pipeline:
         # verify if extracted successfully        
         self.data2 = pd.read_csv("ushealthinsurancedataset/insurance.csv")
         if self.data2 is not None:
-            print("Dataset 2 Extraction Success!")
+            print("\nDataset 2 Extraction Success!\n")
         #(self.data2).to_csv("data1", index=False)
 
     def transform_Data(self):
@@ -91,7 +92,7 @@ class Pipeline:
         # filling values less than 30%
         self.data2.fillna(method='bfill', inplace=True)
 
-        print("Data Transformation Success!")
+        print("\nData Transformation Success!\n")
 
     def load_Data(self):
         # load data 1
@@ -99,16 +100,17 @@ class Pipeline:
         disk_engine = create_engine(path, echo = False)
         (self.data1).to_sql('US_demographics', disk_engine, if_exists='replace')
         disk_engine.dispose()
-        # (self.data1).to_csv("data1", index=False)
+        (self.data1).to_csv("data1", index=False)
 
         # load data 2
         path = 'sqlite:///../data/' + self.kaggle_user_name + '1.sqlite'
         disk_engine = create_engine(path, echo = False)
         (self.data2).to_sql('ushealthinsurancedataset', disk_engine, if_exists='replace')
         disk_engine.dispose()
-        # (self.data2).to_csv("data2", index=False)
+        (self.data2).to_csv("data2", index=False)
+        (self.data2).head()
 
-        print("Data Load Success!")
+        print("\nData Load Success!\n")
 
     def execute_Pipeline(self):
         self.extract_Data()
@@ -116,6 +118,14 @@ class Pipeline:
         self.load_Data()
         
 if __name__ == '__main__':
+
     # your_username and your_key for Kaggle data extraction
-    pipe = Pipeline('username','key')
+    pipe = Pipeline('kaggle username','kaggle key')
+    print("\n\n*********************Pipeline started*********************\n\n")
     pipe.execute_Pipeline()
+    print("\n*********************Pipeline ended*********************\n\n")
+
+    test = Test("kaggle username") 
+    print("\n*********************Test started*********************\n")
+    test.test_pipeline()
+    print("\n*********************Test ended*********************\n")
