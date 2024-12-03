@@ -60,7 +60,7 @@ pipeline MBTKPipeline {
     valuetype valid_id oftype integer {
         constraints: [ valid_id_Const ];
     }
-    constraint valid_id_Const on decimal :
+    constraint valid_id_Const on integer :
         value > 0;
     
     // temp Celsius to Fahrenheit converter
