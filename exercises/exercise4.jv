@@ -44,11 +44,17 @@ pipeline MBTKPipeline {
             "id" oftype valid_id,
             "producer" oftype text,
             "model" oftype text,
-            "month" oftype integer,
-            "temperature" oftype integer,
-            "battery_temperature" oftype integer
+            "month" oftype valid_month,
+            "temperature" oftype decimal,
+            "battery_temperature" oftype decimal
         ];
     }
+    // valid_month Constraint
+    valuetype valid_month oftype decimal {
+        constraints: [ valid_month_Const ];
+    }
+    constraint valid_month_Const on decimal :
+        value > 0 and value <= 12;
 
     // valid_id Constraint
     valuetype valid_id oftype decimal {
