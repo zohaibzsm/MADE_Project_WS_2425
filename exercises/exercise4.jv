@@ -44,7 +44,7 @@ pipeline MBTKPipeline {
             "id" oftype valid_id,
             "producer" oftype text,
             "model" oftype text,
-            "month" oftype integer,
+            "month" oftype valid_month,
             "temperature" oftype decimal,
             "battery_temperature" oftype decimal
         ];
