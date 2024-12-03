@@ -8,7 +8,6 @@ pipeline MBTKPipeline {
     ->CelsiusToFahrenheitTransformer->BatterytempCelsiusToFahrenheitTransformer
     ->SQLiteLoader;
 
-
     // **************************** Pipeline Blocks ********************************
 
     block Extractor oftype HttpExtractor { 
@@ -20,7 +19,7 @@ pipeline MBTKPipeline {
     }
     
     block FilePicker oftype FilePicker {
-        path: "/mowesta-dataset-20221107/data.csv";
+        path: "./data.csv";
     }
 
     block TextFileInterpreter oftype TextFileInterpreter{   }
