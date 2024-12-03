@@ -20,7 +20,7 @@ pipeline MBTKPipeline {
     }
     
     block FilePicker oftype FilePicker {
-        path: "/home/runner/work/MADE_Project_WS_2425/MADE_Project_WS_2425/main/exercises/mowesta-dataset-20221107/data.csv";
+        path: "data.csv";
     }
 
     block TextFileInterpreter oftype TextFileInterpreter{   }
