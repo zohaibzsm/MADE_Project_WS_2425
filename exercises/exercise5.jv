@@ -29,7 +29,7 @@ pipeline GTFSPipeline {
     block TableInterpreter oftype TableInterpreter { 
         header: true;
         columns: [
-            "stop_id" oftype text,
+            "stop_id" oftype integer,
             "stop_name" oftype text,
             "stop_lat" oftype valid_geo_coordinates,
             "stop_lon" oftype valid_geo_coordinates,
