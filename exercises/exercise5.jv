@@ -29,7 +29,7 @@ pipeline GTFSPipeline {
     block TableInterpreter oftype TableInterpreter { 
         header: true;
         columns: [
-            "stop_id" oftype integer,
+            "stop_id" oftype text,
             "stop_name" oftype text,
             "stop_lat" oftype valid_geo_coordinates,
             "stop_lon" oftype valid_geo_coordinates,
@@ -38,11 +38,11 @@ pipeline GTFSPipeline {
     }
 
     // valid_zone Constraint
-    valuetype valid_zone oftype text {
+    valuetype valid_zone oftype integer {
         constraints: [ valid_zone_Const ];
     }
-    constraint valid_zone_Const on text :
-        value == "1925";
+    constraint valid_zone_Const on integer :
+        value == 1925;
 
     // valid_geo_coordinates Constraint
     valuetype valid_geo_coordinates oftype decimal {
