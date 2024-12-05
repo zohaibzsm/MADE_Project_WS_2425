@@ -17,7 +17,7 @@ pipeline GTFSPipeline {
     }
     
     block FilePicker oftype FilePicker {
-        path: "./stops.csv";
+        path: "./stops.txt";
     }
 
     block TextFileInterpreter oftype TextFileInterpreter{   }
@@ -36,7 +36,7 @@ pipeline GTFSPipeline {
             "zone_id" oftype valid_zone,
         ];
     }
-    
+
     // valid_zone Constraint
     valuetype valid_zone oftype integer {
         constraints: [ valid_zone_Const ];
