@@ -1,0 +1,66 @@
+
+pipeline GTFSPipeline {
+
+    // GTFS
+
+    Extractor->ZipArchiveInterpreter->FilePicker->TextFileInterpreter
+    ->CSVInterpreter->TableInterpreter->SQLiteLoader;
+
+    // **************************** Pipeline Blocks ********************************
+
+    block Extractor oftype HttpExtractor { 
+            url: "https://gtfs.rhoenenergie-bus.de/GTFS.zip";
+    }
+    
+    block ZipArchiveInterpreter oftype ArchiveInterpreter {
+        archiveType: "zip";
+    }
+    
+    block FilePicker oftype FilePicker {
+        path: "./stops.csv";
+    }
+
+    block TextFileInterpreter oftype TextFileInterpreter{   }
+    
+    block CSVInterpreter  oftype CSVInterpreter  {
+        delimiter : ',';
+    }
+
+    block TableInterpreter oftype TableInterpreter { 
+        header: true;
+        columns: [
+            "stop_id" oftype integer,
+            "stop_name" oftype text,
+            "stop_lat" oftype valid_stop_lat,
+            "stop_lon" oftype valid_stop_lon,
+            "zone_id" oftype valid_zone,
+        ];
+    }
+    
+    // valid_zone Constraint
+    valuetype valid_zone oftype integer {
+        constraints: [ valid_zone_Const ];
+    }
+    constraint valid_zone_Const on integer :
+        value == 1925;
+
+    // valid_stop_lat Constraint
+    valuetype valid_stop_lat oftype integer {
+        constraints: [ valid_stop_lat_Const ];
+    }
+    constraint valid_stop_lat_Const on integer :
+        value >= -90 and value <= 90;
+
+    // valid_stop_lat Constraint
+    valuetype valid_stop_lon oftype integer {
+        constraints: [ valid_stop_lon_Const ];
+    }
+    constraint valid_stop_lon_Const on integer :
+        value >= -90 and value <= 90;
+
+    block SQLiteLoader oftype SQLiteLoader {
+        table: "stops";
+        file: "./gtfs.sqlite";
+    }
+    
+}
