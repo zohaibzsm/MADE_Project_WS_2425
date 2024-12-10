@@ -4,11 +4,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      name: Test Code
-      uses: project/tests.py
-      with:
-        python-version: '3.9.5'
-      name: Install relevant files
-      run: pip install -r requirements.txt
-      name: Run Tests
-      run: tests
+      - name: Test Code
+      - uses: project/tests.py
+      - with:
+          python-version: 3.9.5
+      - name: Install relevant files
+      - run: pip install -r requirements.txt
+      - name: Run Tests
+      - run: sh ./project/tests.sh
