@@ -5,12 +5,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - name: Check out repository code
-      - uses: actions/checkout@v1
+      # - name: Check out repository code
+      # - uses: actions/checkout@v1
       # - name: Test Code
       # - uses: project/tests.py
-      - with:
-          python-version: 3.9.5
+      # - with:
+          # python-version: 3.9.5
       # - name: Install relevant files
       # - run: pip install -r requirements.txt
       - name: Run Tests
