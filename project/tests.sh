@@ -4,4 +4,4 @@
 # please provide your kaggle username and kaggle key in pipeline.py file in "if" block at the bottom
 # in Pipeline and Test constructors as the placeholders specified
 
-python ./pipeline.py
+python ./project/pipeline.py
