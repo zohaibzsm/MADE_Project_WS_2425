@@ -26,7 +26,8 @@ jobs:
     - name: Checkout Code
     - uses: actions/checkout@v3
     - name: Install relevant files
-    - run: pip install -r ./project/requirements.txt
+    - uses: ./project/requirements.txt
+    - run: pip install -r requirements.txt
     - name: Run Tests
     - run: sh ./project/tests.sh
 
