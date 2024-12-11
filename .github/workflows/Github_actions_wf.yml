@@ -1,5 +1,6 @@
 name: CI Workflow
 on: [push]
+
 jobs:
   Tests:
     runs-on: ubuntu-latest
