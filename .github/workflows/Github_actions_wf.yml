@@ -25,7 +25,6 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v3
-      
     - name: Run Tests
       run: sh ./project/tests.sh
 
