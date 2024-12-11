@@ -1,18 +1,36 @@
-name: CI Workflow
-on: [push]
+# name: CI Workflow
+# on: [push]
 
+# jobs:
+#   Tests:
+#     runs-on: ubuntu-latest
+#     steps:
+#       # - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+#       # - name: Check out repository code
+#       # - uses: actions/checkout@v1
+#       # - name: Test Code
+#       # - uses: project/tests.py
+#       # - with:
+#           # python-version: 3.9.5
+#       # - name: Install relevant files
+#       # - run: pip install -r requirements.txt
+#       - name: Run Tests
+#       - run: sh ./project/tests.sh
+
+name: Test Workflow
+on: [push]
 jobs:
-  Tests:
+  build:
     runs-on: ubuntu-latest
     steps:
-      # - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      # - name: Check out repository code
-      # - uses: actions/checkout@v1
-      # - name: Test Code
-      # - uses: project/tests.py
-      # - with:
-          # python-version: 3.9.5
-      # - name: Install relevant files
-      # - run: pip install -r requirements.txt
-      - name: Run Tests
-      - run: sh ./project/tests.sh
+    - name: Checkout Code
+      uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9.5
+    - name: Install Dependencies
+      run: pip install -r requirements.txt
+    - name: Run Tests
+      run: tests
+
